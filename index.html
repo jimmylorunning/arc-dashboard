@@ -48,15 +48,15 @@
       <div class="col-sm-8">
         <div class="chart-wrapper">
           <div class="chart-title">
-           Total Rides by County
+           Cost Per Trip Mile
           </div>
           <div class="chart-stage">
             <div id="grid-1-1">
-              <div id="total_rides_by_county_div" width="100%"></div>
+              <div id="cost_per_tripmile_div" width="100%"></div>
             </div>
           </div>
           <div class="chart-notes">
-            Data from the last month
+            <!-- american dollars -->
           </div>
         </div>
       </div>
@@ -79,43 +79,40 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            Total Rides by County
           </div>
           <div class="chart-stage">
-            <div id="month_vs_county_div"></div>
+            <div id="total_rides_by_county_div" width="100%"></div>
           </div>
           <div class="chart-notes">
-            Notes about this chart
+            <!-- notes -->
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            Cost Over Time
           </div>
           <div class="chart-stage">
-            <div id="dashboard_div">
-              <!--Divs that will hold each control and chart-->
-              <div id="filter_div"></div>
-              <div id="piechart_div"></div>
+            <div id="chart_div3">
             </div>
           </div>
           <div class="chart-notes">
-            Notes about this chart
+            <!-- Notes about this chart -->
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            Cost Per Ride
           </div>
           <div class="chart-stage">
-            <div id="chart_div3"></div>
+            <div id="cost_per_ride_div"></div>
           </div>
           <div class="chart-notes">
-            Notes about this chart
+            <!-- Notes about this chart -->
           </div>
         </div>
       </div>
@@ -131,6 +128,16 @@
       <div class="col-sm-12">
         <div class="chart-wrapper">
         <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 904px; height: 769px;'><noscript><a href='#'><img alt='Where are the facilities located  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AR&#47;ARC_0&#47;Wherearethefacilitieslocated&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='904' height='769' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='ARC_0&#47;Wherearethefacilitieslocated' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AR&#47;ARC_0&#47;Wherearethefacilitieslocated&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /></object></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="chart-wrapper">
+
+          <script type='text/javascript' src='https://public.tableausoftware.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 704px; height: 569px;'><noscript><a href='#'><img alt='Where Are Patients Coming From? ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;At&#47;AtlantaRegionalCouncil2&#47;WhereArePatientsComingFrom&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='704' height='569' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableausoftware.com%2F' /> <param name='site_root' value='' /><param name='name' value='AtlantaRegionalCouncil2&#47;WhereArePatientsComingFrom' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;At&#47;AtlantaRegionalCouncil2&#47;WhereArePatientsComingFrom&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /></object></div>
+
         </div>
       </div>
     </div>
@@ -160,7 +167,7 @@
 <script type="text/javascript">
 
           // Load the Visualization API and the piechart package.
-          google.load('visualization', '1.0', {'packages':['corechart', 'controls', 'bar']});
+          google.load('visualization', '1.0', {'packages':['corechart', 'controls', 'bar', 'table']});
 
           // Set a callback to run when the Google Visualization API is loaded.
           google.setOnLoadCallback(drawChart);
@@ -267,7 +274,8 @@
             var chart3 = new google.visualization.LineChart(document.getElementById('chart_div3'));
             chart3.draw(data3, options3);
 
-            dashboard.draw(data4);
+
+/*            dashboard.draw(data4); */
 
 /*** Total Rides by County ***/
 
@@ -284,7 +292,6 @@
               width: '100%',
               height: 'auto',
               hAxis: {
-                title: 'Total Rides',
                 minValue: 0
               },
               vAxis: {
@@ -316,27 +323,43 @@
 
             carrier_chart.draw(carrier_data, carrier_options);
 
-// *** Total Rides
+// *** Cost Per Trip Mile
 
-            var month_vs_county_data = google.visualization.arrayToDataTable([
+            var cost_per_tripmile_data = google.visualization.arrayToDataTable([
               ['Year', 'Jan', 'Feb', 'Mar'],
-              ['Cobb', 1342, 1450, 1215],
-              ['Fulton', 4200, 4143, 3945],
-              ['DeKalb', 3065, 3187, 2978],
-              ['Gwinnett', 1030, 1090, 976]
+              ['MARTA', 1342, 1450, 1215],
+              ['DHS', 4200, 4143, 3945],
+              ['Private Med', 3065, 3187, 2978],
+              ['Fulton AM', 1030, 1090, 976]
             ]);
 
-            var month_vs_county_options = {
+            var cost_per_tripmile_options = {
               chart: {
-                title: 'Total Rides',
                 subtitle: 'January - March 2015',
               },
               bars: 'horizontal' // Required for Material Bar Charts.
             };
 
-            var month_vs_county_chart = new google.charts.Bar(document.getElementById('month_vs_county_div'));
+            var cost_per_tripmile_chart = new google.charts.Bar(document.getElementById('cost_per_tripmile_div'));
 
-            month_vs_county_chart.draw(month_vs_county_data, month_vs_county_options);
+            cost_per_tripmile_chart.draw(cost_per_tripmile_data, cost_per_tripmile_options);
+
+  // ***
+            var cost_per_ride_data = new google.visualization.DataTable();
+            cost_per_ride_data.addColumn('string', 'Provider');
+            cost_per_ride_data.addColumn('number', 'Rides');
+            cost_per_ride_data.addColumn('string', 'Cost per Ride');
+            cost_per_ride_data.addRows([
+                ['MARTA',  6392, '$15.40'],
+                ['DHS',   2576, '$12.50'],
+                ['Private Med', 3245, '$13.25'],
+                ['Fulton AM',   4098,  '$10.97'],
+                ['Cobb EMS',   1589,  '$11.90']
+              ]);
+
+            var cost_per_ride_table = new google.visualization.Table(document.getElementById('cost_per_ride_div'));
+
+            cost_per_ride_table.draw(cost_per_ride_data, {showRowNumber: true});
 
   }
 
