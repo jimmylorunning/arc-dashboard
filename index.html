@@ -24,6 +24,7 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
+          <li>
           <li><a href="#">Welcome, Janae</a></li>
         </ul>
       </div>
@@ -36,11 +37,11 @@
       <div class="col-sm-8">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cost / Trip / Mile
+           Total Rides by County
           </div>
           <div class="chart-stage">
             <div id="grid-1-1">
-              <div id="chart_div3"></div>
+              <div id="total_rides_by_county_div" width="100%"></div>
             </div>
           </div>
           <div class="chart-notes">
@@ -51,13 +52,13 @@
       <div class="col-sm-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Cell Title
+            Total Rides by Carrier
           </div>
           <div class="chart-stage">
-            <div id="chart_div2"></div>
+            <div id="carrier_chart"></div>
           </div>
           <div class="chart-notes">
-            Notes about this chart
+            Data for January 2015
           </div>
         </div>
       </div>
@@ -70,7 +71,7 @@
             Cell Title
           </div>
           <div class="chart-stage">
-              <div id="chart_div"></div>
+            <div id="month_vs_county_div"></div>
           </div>
           <div class="chart-notes">
             Notes about this chart
@@ -100,7 +101,7 @@
             Cell Title
           </div>
           <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
+            <div id="chart_div3"></div>
           </div>
           <div class="chart-notes">
             Notes about this chart
@@ -108,46 +109,16 @@
         </div>
       </div>
 <!-- end of three -->
-      <div class="col-sm-6 col-md-4">
+<!-- div chart_div & chart_div2 removed -->
+
+    <div class="row">
+      <div class="col-sm-12">
         <div class="chart-wrapper">
-          <div class="chart-title">
-            Cell Title
-          </div>
-          <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Cell Title
-          </div>
-          <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            Cell Title
-          </div>
-          <div class="chart-stage">
-            <img data-src="holder.js/100%x120/white">
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
+        <script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 904px; height: 769px;'><noscript><a href='#'><img alt='Where are the facilities located  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AR&#47;ARC_0&#47;Wherearethefacilitieslocated&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='904' height='769' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='ARC_0&#47;Wherearethefacilitieslocated' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AR&#47;ARC_0&#47;Wherearethefacilitieslocated&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /></object></div>
         </div>
       </div>
     </div>
+
   </div>
 
 
@@ -172,7 +143,7 @@
 <script type="text/javascript">
 
           // Load the Visualization API and the piechart package.
-          google.load('visualization', '1.0', {'packages':['corechart', 'controls']});
+          google.load('visualization', '1.0', {'packages':['corechart', 'controls', 'bar']});
 
           // Set a callback to run when the Google Visualization API is loaded.
           google.setOnLoadCallback(drawChart);
@@ -183,7 +154,7 @@
           function drawChart() {
 
             // Create the data table.
-            var data = new google.visualization.DataTable();
+/*            var data = new google.visualization.DataTable();
             data.addColumn('string', 'Topping');
             data.addColumn('number', 'Slices');
             data.addRows([
@@ -204,7 +175,7 @@
               ['Zucchini', 1],
               ['Pepperoni', 2]
             ]);
-
+*/
             var data3 = new google.visualization.DataTable();
             data3.addColumn('string', 'Year');
             data3.addColumn('number', 'Sales');
@@ -228,6 +199,7 @@
             ]);
 
             // Set chart options
+/*
             var options = {'title':'How Much Pizza I Ate Last Night',
                            'width':400,
                            'height':300};
@@ -235,6 +207,7 @@
             var options2 = {'title':'How Much Pizza You Ate Last Night',
                            'width':400,
                            'height':300};
+*/
             // Set chart options
             var options3 = {'title':'Line chart',
                            'width':400,
@@ -268,17 +241,89 @@
             dashboard.bind(donutRangeSlider, pieChart);
 
             // Instantiate and draw our chart, passing in some options.
+/*
             var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
             chart.draw(data, options);
             var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
             chart2.draw(data2, options2);
+*/
             var chart3 = new google.visualization.LineChart(document.getElementById('chart_div3'));
             chart3.draw(data3, options3);
 
             dashboard.draw(data4);
 
-          }
-        </script>
+/*** Total Rides by County ***/
+
+            var total_rides_by_county_data = google.visualization.arrayToDataTable([
+              ['County',          'January 2015'],
+              ['Cobb',       1242],
+              ['Fulton',         4691],
+              ['Cwinnett',             2499],
+              ['DeKalb',             3843]
+
+            ]);
+
+            var total_rides_by_county_options = {
+              width: '100%',
+              height: 'auto',
+              hAxis: {
+                title: 'Total Rides',
+                minValue: 0
+              },
+              vAxis: {
+                title: 'County'
+              }
+            };
+
+            var total_rides_by_county_chart = new google.visualization.BarChart(
+              document.getElementById('total_rides_by_county_div'));
+
+            total_rides_by_county_chart.draw(total_rides_by_county_data, total_rides_by_county_options);
+
+/*** Carrier Data ***/
+
+            var carrier_data = google.visualization.arrayToDataTable([
+              ['Carrier', 'Total Rides'],
+              ['Fulton Am', 4098],
+              ['MARTA', 6932],
+              ['Private Med', 3245],
+              ['DHS', 2576],
+              ['Cobb EMS', 1589]
+            ]);
+
+            var carrier_options = {
+              title: 'January 2015'
+            };
+
+            var carrier_chart = new google.visualization.PieChart(document.getElementById('carrier_chart'));
+
+            carrier_chart.draw(carrier_data, carrier_options);
+
+// *** Total Rides
+
+            var month_vs_county_data = google.visualization.arrayToDataTable([
+              ['Year', 'Jan', 'Feb', 'Mar'],
+              ['Cobb', 1342, 1450, 1215],
+              ['Fulton', 4200, 4143, 3945],
+              ['DeKalb', 3065, 3187, 2978],
+              ['Gwinnett', 1030, 1090, 976]
+            ]);
+
+            var month_vs_county_options = {
+              chart: {
+                title: 'Total Rides',
+                subtitle: 'January - March 2015',
+              },
+              bars: 'horizontal' // Required for Material Bar Charts.
+            };
+
+            var month_vs_county_chart = new google.charts.Bar(document.getElementById('month_vs_county_div'));
+
+            month_vs_county_chart.draw(month_vs_county_data, month_vs_county_options);
+
+  }
+
+</script>
 
 </body>
 </html>
