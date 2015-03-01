@@ -5,7 +5,7 @@
 
   Authors: Luke Mahé (code)
            Marcin Wichary (code and design)
-           
+
            Dominic Mazzoni (browser compatibility)
            Charles Chen (ChromeVox support)
 
@@ -18,9 +18,9 @@
 
     <meta charset='utf-8'>
     <script
-      src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
+      src='https://html5slides.googlecode.com/svn/trunk/slides.js'></script>
   </head>
-  
+
   <style>
     /* Your individual styles here, or just use inline styles if that’s
        what you want. */
@@ -59,16 +59,16 @@ div#test5{
     width: 800px;
     text-align: right;
 }
-    
+
   </style>
 
   <body style='display: none'>
 
     <section class='slides layout-regular template-default'>
-      
+
       <!-- Your slides (<article>s) go here. Delete or comment out the
            slides below. -->
-      
+
       <article class='biglogo'>
           <div id = "test">
               A special thanks to...
