@@ -1,4 +1,6 @@
-# Atlanta Regional Commission Dashboard
+# Community Insights
+
+## Atlanta Regional Commission Dashboard
 
 ### Problem
 
@@ -34,6 +36,10 @@ Provide an automated way to visually communicate performance.
 
 YouTube here: https://www.youtube.com/embed/6axBpWJpnq4
 
+### Hosted
+
+On Heroku: https://still-eyrie-9092.herokuapp.com/
+
 ### In The Near Future...
 
 - Integrate [d3 raw data](http://ultimate-hydra-628.appspot.com/) tool
@@ -44,4 +50,4 @@ YouTube here: https://www.youtube.com/embed/6axBpWJpnq4
 
 ### About this project
 
-This was a [GoodieHack](http://goodiehack.com/) hackathon project
+This was a [GoodieHack 2015](http://goodiehack.com/) hackathon project
