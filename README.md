@@ -18,7 +18,7 @@ Provide an automated way to visually communicate performance.
 - Diana Nichols
 - Ebony Hillsman
 - Elan Grossman
-- Emmanuel ???
+- Emmanuel Boidot
 - Ilya Friedman
 - Jason Fernando
 - Jimmy Lo
